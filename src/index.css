@@ -1,0 +1,120 @@
+/* src/index.css */
+/* ============================================
+   STYLES GLOBAUX — I'M HERE
+   Palette Rouge / Noir / Blanc
+   Optimisé mobile PWA
+   ============================================ */
+
+@import "tailwindcss";
+
+/* ============================================
+   THÈME — Toutes les couleurs en un seul endroit
+   ============================================ */
+@theme {
+  /* Couleurs principales */
+  --color-brand-red:       #DC2626;
+  --color-brand-red-dark:  #B91C1C;
+  --color-brand-red-light: #FEE2E2;
+
+  --color-brand-black:  #111111;
+  --color-brand-dark:   #1F2937;
+  --color-brand-gray:   #6B7280;
+  --color-brand-light:  #F9FAFB;
+  --color-brand-border: #E5E7EB;
+  --color-brand-white:  #FFFFFF;
+
+  /* Statuts */
+  --color-status-present: #16A34A;
+  --color-status-absent:  #DC2626;
+  --color-status-late:    #D97706;
+  --color-status-pending: #2563EB;
+
+  /* Typographie */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Ombres */
+  --shadow-card:  0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-modal: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+/* ============================================
+   IMPORT GOOGLE FONTS — Plus Jakarta Sans
+   Typographie professionnelle
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;500;600;700;800&display=swap');
+
+/* ============================================
+   RESET ET BASE
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  /* Supprime le flash bleu au tap sur mobile */
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  /* Taille de police de base optimale pour mobile */
+  font-size: 16px;
+  /* Scroll fluide */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-light);
+  color: var(--color-brand-dark);
+  /* Rendu texte plus net */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Empêche le bounce scroll sur iOS */
+  overscroll-behavior: none;
+  /* Empêche le zoom sur double tap iOS */
+  touch-action: manipulation;
+}
+
+/* Empêche le zoom sur les inputs iOS */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* ============================================
+   SCROLLBAR PERSONNALISÉE
+   Visible seulement sur desktop
+   ============================================ */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-gray);
+}
+
+/* ============================================
+   ANIMATION SIDEBAR MOBILE
+   ============================================ */
+@keyframes slide-in {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0);     }
+}
+.animate-slide-in {
+  animation: slide-in 0.25s ease-out forwards;
+}
+
+/* ============================================
+   SAFE AREA — iPhone avec notch
+   Évite que le contenu passe sous la barre
+   de navigation du téléphone
+   ============================================ */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
