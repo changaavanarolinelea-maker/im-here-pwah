@@ -13,7 +13,7 @@ import axios from 'axios'
 // URL de base de ton backend
 // En développement : localhost:3000
 // En production : remplace par l'URL réelle
-const BASE_URL = 'http://localhost:3000'
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 // Création de l'instance Axios personnalisée
 const api = axios.create({
